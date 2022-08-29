@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flunt.Validations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Todo.Domain.Commands.Contracts
 {
-    public interface ICommand
+    public interface ICommand : IValidatable
     {
-        bool Validate();
+       
     }
 }
