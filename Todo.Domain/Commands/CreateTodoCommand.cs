@@ -30,7 +30,7 @@ namespace Todo.Domain.Commands
                 new Contract()
                     .Requires()
                     .HasMinLen(Title, 3, "Title", "Por favor, descreva melhor esta tarefa.")
-                    .HasMaxLen(User, 6, "User", "Usuario inválido."));
+                    .HasMaxLen(User, 6, "User", "Usuário inválido."));
         }
     }
 }
