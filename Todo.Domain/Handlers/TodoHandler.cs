@@ -37,5 +37,22 @@ namespace Todo.Domain.Handlers
 
            return new GenericCommandResult(true, "Tarefa Salva", todo);
         }
+
+        public ICommandResult Handle(UpdateTodoCommand command)
+        {
+            command.Validate();
+            if (command.Invalid)
+            {
+                return new GenericCommandResult(false, "Tarefa inválida.", command);
+            }
+
+            var todo = _repository.GetById(command.Id, command.User);
+
+            todo.UpdateTitle(command.Title);
+
+            _repository.Update(todo);
+
+            return new GenericCommandResult(true, "Tarefa atualizada com sucesso.", todo);
+        }
     }
 }
