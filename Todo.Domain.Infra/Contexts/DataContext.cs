@@ -11,5 +11,10 @@ namespace Todo.Domain.Infra.Contexts
         }
 
         public DbSet<TodoItem> Todos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
